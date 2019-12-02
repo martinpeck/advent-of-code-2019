@@ -16,9 +16,9 @@ def determine_fuel_for_fuel(mass):
     return total_fuel
 
 
-def solve_day1_part1():
+def solve_part1():
     fuel_total = 0
-    with open("day1_input.txt", "r") as file:
+    with open("input.txt", "r") as file:
         for line in file:
             input_value = int(line)
             fuel_total += determine_fuel(input_value)
@@ -26,9 +26,9 @@ def solve_day1_part1():
     return fuel_total
 
 
-def solve_day1_part2():
+def solve_part2():
     fuel_total = 0
-    with open("day1_input.txt", "r") as file:
+    with open("input.txt", "r") as file:
         for line in file:
             input_value = int(line)
             fuel_total += determine_fuel_for_fuel(input_value)
@@ -36,6 +36,11 @@ def solve_day1_part2():
     return fuel_total
 
 
+def solve_all():
+    print(f"*** {__file__} ***")
+    print(f"Solution to part 1: {solve_part1()}")
+    print(f"Solution to part 2: {solve_part2()}")
+
+
 if __name__ == "__main__":
-    print(f"day 1, part 1: {solve_day1_part1()}")
-    print(f"day 1, part 2: {solve_day1_part2()}")
+    solve_all()
