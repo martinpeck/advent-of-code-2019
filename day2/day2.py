@@ -1,3 +1,6 @@
+from itertools import product
+
+
 def load_instructions(filename):
     with open(filename, "r") as file:
         line = file.readline()
@@ -70,7 +73,20 @@ def solve_part1():
 
 
 def solve_part2():
-    pass
+
+    noun_verb_combinations = product(range(0, 99), range(0, 99))
+
+    for noun, verb in noun_verb_combinations:
+        instructions = load_instructions(filename="input.txt")
+        instructions[1] = noun
+        instructions[2] = verb
+        result = run_program(instructions)
+        position_zero = result[0]
+
+        if position_zero == 19690720:
+            return (100 * noun) + verb
+
+    raise Exception("No noun verb combination found")
 
 
 def solve_all():
