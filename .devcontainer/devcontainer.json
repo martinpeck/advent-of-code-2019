@@ -2,9 +2,13 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3
 {
 	"name": "Python 3",
-	"context": "..",
 	"dockerFile": "Dockerfile",
 
+	"runArgs": [
+		// Keep command history 
+		"-v", "advent2019-bashhistory:/root/commandhistory"
+	],
+	
 	// Use 'settings' to set *default* container specific settings.json values on container create. 
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": { 
@@ -14,7 +18,8 @@
 		"python.linting.flake8Enabled": true,
 		"python.formatting.provider": "black"
 	},
-
+	"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=delegated",
+	"workspaceFolder": "/workspace",
 	// Uncomment the next line if you want to publish any ports.
 	// "appPort": [],
 
