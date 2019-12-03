@@ -2,7 +2,7 @@ from day2 import parse_instructions, run_program
 import unittest
 
 
-class Day1FuelTestCase(unittest.TestCase):
+class Day1TestCase(unittest.TestCase):
     def test_parse_instructions(self):
         self.assertEqual([1, 0, 0, 0, 99], parse_instructions("1,0,0,0,99"))
         self.assertEqual([2, 3, 0, 3, 99], parse_instructions("2,3,0,3,99"))
