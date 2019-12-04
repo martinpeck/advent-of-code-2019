@@ -16,7 +16,8 @@
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.linting.enabled": true,
 		"python.linting.flake8Enabled": true,
-		"python.formatting.provider": "black"
+		"python.formatting.provider": "black",
+		"python.testing.unittestEnabled": true
 	},
 	"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=delegated",
 	"workspaceFolder": "/workspace",
