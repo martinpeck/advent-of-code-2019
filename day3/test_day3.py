@@ -27,7 +27,7 @@ class Day3TestCase(unittest.TestCase):
 
     def test_perform_moves_for_route(self):
         locations = day3.perform_moves_for_route(["R1"])
-        expected_locations = set([(1, 0)])
+        expected_locations = [(1, 0)]
 
         self.assertEqual(locations, expected_locations)
 
@@ -45,7 +45,7 @@ class Day3TestCase(unittest.TestCase):
         route1 = day3.convert_route_string_to_list(route1_string)
         route2 = day3.convert_route_string_to_list(route2_string)
 
-        distance = day3.calculate_distance(route1, route2)
+        distance, steps = day3.calculate_distance(route1, route2)
 
         self.assertEqual(159, distance)
 
@@ -56,6 +56,28 @@ class Day3TestCase(unittest.TestCase):
         route1 = day3.convert_route_string_to_list(route1_string)
         route2 = day3.convert_route_string_to_list(route2_string)
 
-        distance = day3.calculate_distance(route1, route2)
+        distance, steps = day3.calculate_distance(route1, route2)
 
         self.assertEqual(135, distance)
+
+    def test_calculate_steps_1(self):
+        route1_string = "R75,D30,R83,U83,L12,D49,R71,U7,L72"
+        route2_string = "U62,R66,U55,R34,D71,R55,D58,R83"
+
+        route1 = day3.convert_route_string_to_list(route1_string)
+        route2 = day3.convert_route_string_to_list(route2_string)
+
+        distance, steps = day3.calculate_distance(route1, route2)
+
+        self.assertEqual(610, steps)
+
+    def test_calculate_steps_2(self):
+        route1_string = "R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51"
+        route2_string = "U98,R91,D20,R16,D67,R40,U7,R15,U6,R7"
+
+        route1 = day3.convert_route_string_to_list(route1_string)
+        route2 = day3.convert_route_string_to_list(route2_string)
+
+        distance, steps = day3.calculate_distance(route1, route2)
+
+        self.assertEqual(410, steps)
